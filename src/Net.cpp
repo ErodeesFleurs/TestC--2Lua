@@ -4,11 +4,11 @@
 
 #include <fstream>
 
-namespace NetFile {
+namespace Net {
     using namespace boost::asio;
     using ip::tcp;
 
-    //返回错误信息
+    //接收文件
     std::optional<std::string> fileRevicer(std::string_view ip, std::string_view port, std::string_view path) {
         try {
             io_context io_context;
@@ -33,7 +33,7 @@ namespace NetFile {
         }        
     }
 
-    //返回错误信息
+    //发送文件
     std::optional<std::string> fileSender(std::string_view ip, std::string_view port, std::string_view path) {
         try {
             io_context io_context;
@@ -59,6 +59,7 @@ namespace NetFile {
         }
     }
 
+    //获取本地IP地址
     std::optional<std::string> getLocalIPAddress() {
         try {
             boost::asio::io_context io_context;
