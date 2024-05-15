@@ -11,8 +11,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    
     - name: setup xmake          
       uses: xmake-io/github-action-setup-xmake@v1
+    
+    - name: Build with Xmake
+      run: xmake
+      
     - name: Archive build artifacts
       if: success()
       uses: actions/upload-artifact@v4
