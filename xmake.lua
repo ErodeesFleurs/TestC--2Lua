@@ -10,4 +10,5 @@ target("test")
     set_languages("c++20")
     set_warnings("all")
     set_optimize("fastest")
+    set_targetdir("$(projectdir)/dist/$(mode)")
 
