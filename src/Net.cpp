@@ -72,9 +72,9 @@ namespace Net {
                     return addr.to_string();
                 }
             }
+            return {};
         } catch (std::exception& e) {
             return e.what();
         }
-        return {};
     }
 }
