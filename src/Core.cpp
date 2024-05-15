@@ -3,7 +3,7 @@
 #include "lua.hpp"
 #include "sol/sol.hpp"
 
-#include "NetFile.hpp"
+#include "Net.hpp"
 #include "Promise.hpp"
 
 int getPid() {
