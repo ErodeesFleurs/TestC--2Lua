@@ -19,14 +19,8 @@ sol::table open_my_object(sol::this_state L) {
     sol::state_view lua(L);
     sol::table module = lua.create_table();
     module.set_function("getPid", &Process::getPid);
-    module.set_function("IPAddress", []() -> std::optional<std::string> { return Net::getLocalIPAddress(); });
-    // module.set_function("fileRevicer", &fileRevicer);
-    // module.set_function("fileSender", &fileSender);
-    // lua.new_usertype<Promise::Promise<std::optional<std::string>>>("Promise", 
-    //     "finished", &Promise::Promise<std::optional<std::string>>::finished, 
-    //     "succeeded", &Promise::Promise<std::optional<std::string>>::succeeded, 
-    //     "result", &Promise::Promise<std::optional<std::string>>::result, 
-    //     "error", &Promise::Promise<std::optional<std::string>>::error);
+    module.set_function("fileRevicer", &fileRevicer);
+    module.set_function("fileSender", &fileSender);
     return module;
 }
 
