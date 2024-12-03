@@ -28,13 +28,9 @@ set(LUA_SRC_DIR "${CMAKE_SOURCE_DIR}/thirdparty/lua")
 set(LUA_INCLUDE_DIR "${LUA_SRC_DIR}")
 
 set(THIRD_PARTY_DIR "${CMAKE_SOURCE_DIR}/thirdparty")
-set(THIRD_PARTY_LIB_DIR "${CMAKE_SOURCE_DIR}/lib")
 
-
-# 添加头文件和源文件
-include_directories(${LUA_INCLUDE_DIR})
-# 编译 Lua 静态库
 add_subdirectory(${THIRD_PARTY_DIR})
+include_directories(${LUA_INCLUDE_DIR})
 
 # 添加目标
 add_library(test SHARED)
@@ -43,8 +39,6 @@ add_library(test SHARED)
 file(GLOB_RECURSE HEADER_FILES src/*.hpp)
 file(GLOB_RECURSE SOURCE_FILES src/*.cpp)
 target_sources(test PRIVATE ${HEADER_FILES} ${SOURCE_FILES})
-
-target_link_libraries(test ${THIRD_PARTY_LIB_DIR}/liblua.a)
 
 # set_target_properties(test PROPERTIES
 #     PREFIX ""

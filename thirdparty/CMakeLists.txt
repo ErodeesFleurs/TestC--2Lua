@@ -2,10 +2,11 @@ set(LUA_LIB_NAME lua)
 
 set(LUA_LIB_OUTPUT_DIR "${CMAKE_BINARY_DIR}/lib")
 
-add_library(${LUA_LIB_NAME} STATIC 
+set(EXT_LIBS_SOURCES
 lua/lapi.c
 lua/lauxlib.c
 lua/lbaselib.c
+lua/lbitlib.c
 lua/lcode.c
 lua/lcorolib.c
 lua/lctype.c
@@ -30,20 +31,19 @@ lua/lstring.c
 lua/lstrlib.c
 lua/ltable.c
 lua/ltablib.c
-lua/ltests.c
 lua/ltm.c
-lua/lua.c
 lua/lundump.c
 lua/lutf8lib.c
 lua/lvm.c
 lua/lzio.c
 )
 
-# # 设置编译器标志（你可以根据需求修改）
-# target_compile_definitions(${LUA_LIB_NAME} PRIVATE LUA_CORE)
+set(EXT_LIBS_HEADERS
+lua/lauxlib.h
+lua/lua.h
+lua/lua.hpp
+lua/luaconf.h
+lua/lualib.h
+)
 
-# 输出静态库到指定目录
-set_target_properties(${LUA_LIB_NAME} PROPERTIES ARCHIVE_OUTPUT_DIRECTORY ${LUA_LIB_OUTPUT_DIR})
-
-# 设定 Lua 头文件的搜索路径
-target_include_directories(${LUA_LIB_NAME} PUBLIC ${LUA_SRC_DIR})
+add_library(ext_libs OBJECT ${EXT_LIBS_SOURCES} ${EXT_LIBS_HEADERS})
