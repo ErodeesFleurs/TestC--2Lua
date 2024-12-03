@@ -1,7 +1,11 @@
 #include "Drawable.hpp"
 #include "Process.hpp"
-#include "lua.hpp"
 
+extern "C" {
+#include "lauxlib.h"
+#include "lua.h"
+#include "lualib.h"
+}
 struct testT {
   int a;
   int b;

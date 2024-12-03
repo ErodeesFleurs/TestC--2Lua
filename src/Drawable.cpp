@@ -142,8 +142,8 @@ std::string generate_fade(const std::vector<std::vector<color_rgba>>& image,
                           const std::map<std::string, int>& options) {
   int width = options.count("width") ? options.at("width") : image[0].size();
   int height = options.count("height") ? options.at("height") : image.size();
-  int offset_x = 0;
-  int offset_y = 0;
+  // int offset_x = 0;
+  // int offset_y = 0;
   std::string src_image_directory = "/assetmissing.png";
 
   int green_index = 0;
