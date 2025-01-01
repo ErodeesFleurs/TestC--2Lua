@@ -78,5 +78,5 @@ jobs:
       if: success()
       uses: actions/upload-artifact@v4
       with:
-        name: build-${{ matrix.os }}
+        name: build-${{ matrix.os }}--${{ matrix.c_compiler }}
         path: ./build/dist 
