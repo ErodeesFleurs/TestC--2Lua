@@ -21,7 +21,7 @@ static int test_getB(lua_State* L) {
   return 1;  // 返回一个结果
 }
 
-extern "C" int init(lua_State* L) {
+extern "C" int luaopen_fleurs(lua_State* L) {
   lua_newtable(L);
 
   lua_pushcfunction(L, [](lua_State* L) -> int {
@@ -70,6 +70,25 @@ extern "C" int init(lua_State* L) {
     return 1;
   });
   lua_setfield(L, -2, "newTest");
+
+  // // 函数化表
+  // lua_newtable(L);
+  // lua_pushcfunction(L, LuaFunctional::l_map);
+  // lua_setfield(L, -2, "map");
+
+  // lua_pushcfunction(L, LuaFunctional::l_range);
+  // lua_setfield(L, -2, "range");
+
+  // lua_pushcfunction(L, LuaFunctional::l_reduce);
+  // lua_setfield(L, -2, "reduce");
+
+  // lua_pushcfunction(L, LuaFunctional::l_chain);
+  // lua_setfield(L, -2, "chain");
+
+  // lua_pushcfunction(L, LuaFunctional::l_copy);
+  // lua_setfield(L, -2, "copy");
+
+  // lua_setfield(L, -2, "functional");
 
   return 1;
 }

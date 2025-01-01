@@ -1,7 +1,15 @@
 #pragma once
 
-extern "C" {
-#include "lauxlib.h"
-#include "lua.h"
-#include "lualib.h"
-}
+#include "lua.hpp"
+namespace LuaFunctional {
+int l_map(lua_State* L);
+
+int l_range(lua_State* L);
+
+int l_reduce(lua_State* L);
+
+int l_chain(lua_State* L);
+
+int l_copy(lua_State* L);
+
+}  // namespace LuaFunctional
