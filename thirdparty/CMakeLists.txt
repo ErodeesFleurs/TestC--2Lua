@@ -46,4 +46,5 @@ lua/luaconf.h
 lua/lualib.h
 )
 
-add_library(ext_libs OBJECT ${EXT_LIBS_SOURCES} ${EXT_LIBS_HEADERS})
+# add_library(ext_libs OBJECT ${EXT_LIBS_SOURCES} ${EXT_LIBS_HEADERS})
+add_library(lua_static STATIC ${LUA_SOURCES} ${LUA_HEADERS})

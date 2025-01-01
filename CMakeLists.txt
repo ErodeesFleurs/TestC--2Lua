@@ -32,6 +32,10 @@ set(THIRD_PARTY_DIR "${CMAKE_SOURCE_DIR}/thirdparty")
 add_subdirectory(${THIRD_PARTY_DIR})
 include_directories(${LUA_INCLUDE_DIR})
 
+# target_sources(test PRIVATE ${HEADER_FILES} ${SOURCE_FILES})
+target_include_directories(lua_static PUBLIC ${LUA_INCLUDE_DIR})
+set_target_properties(lua_static PROPERTIES OUTPUT_NAME "lua")
+
 # 添加目标
 add_library(test SHARED)
 
@@ -39,6 +43,9 @@ add_library(test SHARED)
 file(GLOB_RECURSE HEADER_FILES src/*.hpp)
 file(GLOB_RECURSE SOURCE_FILES src/*.cpp)
 target_sources(test PRIVATE ${HEADER_FILES} ${SOURCE_FILES})
+
+# 链接 Lua 静态库
+target_link_libraries(test PRIVATE lua_static)
 
 # set_target_properties(test PROPERTIES
 #     PREFIX ""
