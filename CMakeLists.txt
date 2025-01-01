@@ -27,27 +27,34 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/dist/${CMAKE_BUILD_TYPE})
 set(LUA_SRC_DIR "${CMAKE_SOURCE_DIR}/thirdparty/lua")
 set(LUA_INCLUDE_DIR "${LUA_SRC_DIR}")
 
-set(THIRD_PARTY_DIR "${CMAKE_SOURCE_DIR}/thirdparty")
+# set(THIRD_PARTY_DIR "${CMAKE_SOURCE_DIR}/thirdparty")
 
-add_subdirectory(${THIRD_PARTY_DIR})
-include_directories(${LUA_INCLUDE_DIR})
+# add_subdirectory(${THIRD_PARTY_DIR})
+# include_directories(${LUA_INCLUDE_DIR})
 
-# target_sources(test PRIVATE ${HEADER_FILES} ${SOURCE_FILES})
+
+# 添加 Lua 源文件
+file(GLOB LUA_SOURCES
+    "${LUA_SRC_DIR}/*.c"
+)
+
+# 添加 Lua 头文件
+file(GLOB LUA_HEADERS
+    "${LUA_SRC_DIR}/*.h"
+)
+
+# 构建 Lua 静态库
+add_library(lua_static STATIC ${LUA_SOURCES})
 target_include_directories(lua_static PUBLIC ${LUA_INCLUDE_DIR})
 set_target_properties(lua_static PROPERTIES OUTPUT_NAME "lua")
 
-# 添加目标
+# 添加主目标
 add_library(test SHARED)
 
-
+# 添加源文件
 file(GLOB_RECURSE HEADER_FILES src/*.hpp)
 file(GLOB_RECURSE SOURCE_FILES src/*.cpp)
 target_sources(test PRIVATE ${HEADER_FILES} ${SOURCE_FILES})
 
 # 链接 Lua 静态库
 target_link_libraries(test PRIVATE lua_static)
-
-# set_target_properties(test PROPERTIES
-#     PREFIX ""
-#     SUFFIX ".dll"
-# )
