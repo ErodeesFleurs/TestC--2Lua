@@ -48,6 +48,11 @@ add_library(lua_static STATIC ${LUA_SOURCES})
 target_include_directories(lua_static PUBLIC ${LUA_INCLUDE_DIR})
 set_target_properties(lua_static PROPERTIES OUTPUT_NAME "lua")
 
+# 为 Lua 静态库添加 -fPIC
+if (UNIX)
+    target_compile_options(lua_static PRIVATE -fPIC)
+endif()
+
 # 添加主目标
 add_library(test SHARED)
 
