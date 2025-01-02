@@ -64,8 +64,8 @@ add_library(test SHARED)
 # 添加源文件
 file(GLOB_RECURSE HEADER_FILES src/*.hpp)
 file(GLOB_RECURSE SOURCE_FILES src/*.cpp)
-target_sources(test PRIVATE ${HEADER_FILES} ${SOURCE_FILES})
-target_include_directories(test PRIVATE ${STB_IMAGE_INCLUDE_DIR})
+target_sources(test PRIVATE ${HEADER_FILES} ${SOURCE_FILES} ${STB_IMAGE_INCLUDE_DIR})
+# target_include_directories(test PRIVATE ${STB_IMAGE_INCLUDE_DIR})
 
 # 链接 Lua 静态库
 target_link_libraries(test PRIVATE lua_static)
