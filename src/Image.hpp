@@ -1,8 +1,10 @@
 #pragma once
 
-#include "stb_image.h"
 #include <string>
 #include <stdexcept>
+
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
 
 class Image
 {
