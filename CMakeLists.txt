@@ -26,12 +26,17 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/dist/${CMAKE_BUILD_TYPE})
 # 设置thirdparty路径
 set(LUA_SRC_DIR "${CMAKE_SOURCE_DIR}/thirdparty/lua")
 set(LUA_INCLUDE_DIR "${LUA_SRC_DIR}")
+set(STB_IMAGE_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/thirdparty/stb_image")
 
 # set(THIRD_PARTY_DIR "${CMAKE_SOURCE_DIR}/thirdparty")
 
 # add_subdirectory(${THIRD_PARTY_DIR})
 # include_directories(${LUA_INCLUDE_DIR})
 
+# 添加 STB_IMAGE 头文件
+file(GLOB STB_IMAGE_HEADERS
+    "${STB_IMAGE_INCLUDE_DIR}/*.h"
+)
 
 # 添加 Lua 源文件
 file(GLOB LUA_SOURCES
