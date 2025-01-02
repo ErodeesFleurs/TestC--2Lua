@@ -1,11 +1,8 @@
-#define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
-#include "lua.hpp"
-
 #include "Drawable.hpp"
 #include "Process.hpp"
 #include "Image.hpp"
 
+#include "lua.hpp"
 struct testT
 {
   int a;
