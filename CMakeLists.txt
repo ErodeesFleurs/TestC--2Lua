@@ -34,9 +34,6 @@ set(STB_IMAGE_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/thirdparty/stb_image")
 # include_directories(${LUA_INCLUDE_DIR})
 
 # 添加 STB_IMAGE 头文件
-file(GLOB_RECURSE HEADER_FILES
-    ${STB_IMAGE_INCLUDE_DIR}/*.h
-)
 
 # 添加 Lua 源文件
 file(GLOB LUA_SOURCES
@@ -58,13 +55,15 @@ if (UNIX)
     target_compile_options(lua_static PRIVATE -fPIC)
 endif()
 
+include_directories(${STB_IMAGE_INCLUDE_DIR})
+
 # 添加主目标
 add_library(test SHARED)
 
 # 添加源文件
 file(GLOB_RECURSE HEADER_FILES src/*.hpp)
 file(GLOB_RECURSE SOURCE_FILES src/*.cpp)
-target_sources(test PRIVATE ${HEADER_FILES} ${SOURCE_FILES} ${STB_IMAGE_INCLUDE_DIR})
+target_sources(test PRIVATE ${HEADER_FILES} ${SOURCE_FILES})
 # target_include_directories(test PRIVATE ${STB_IMAGE_INCLUDE_DIR})
 
 # 链接 Lua 静态库
