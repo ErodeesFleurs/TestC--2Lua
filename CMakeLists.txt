@@ -34,8 +34,8 @@ set(STB_IMAGE_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/thirdparty/stb_image")
 # include_directories(${LUA_INCLUDE_DIR})
 
 # 添加 STB_IMAGE 头文件
-file(GLOB STB_IMAGE_HEADERS
-    "${STB_IMAGE_INCLUDE_DIR}/*.h"
+file(GLOB_RECURSE HEADER_FILES
+    ${STB_IMAGE_INCLUDE_DIR}/*.h
 )
 
 # 添加 Lua 源文件
