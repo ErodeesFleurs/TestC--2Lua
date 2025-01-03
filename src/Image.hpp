@@ -15,6 +15,7 @@ public:
     int getHeight() const { return height; }
     int getChannels() const { return channels; }
     unsigned char *getData() const { return data; }
+    static std::string toHex();
 
 private:
     int width, height, channels;
