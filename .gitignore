@@ -4,7 +4,7 @@ build/*
 lib/*
 dist/*
 
-shell.nix
+# shell.nix
 
 # CMake
 CMakeFiles

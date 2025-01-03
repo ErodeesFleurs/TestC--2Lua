@@ -1,3 +1,5 @@
+#define STB_IMAGE_IMPLEMENTATION
+
 #include "Drawable.hpp"
 #include "Process.hpp"
 #include "Image.hpp"
